@@ -10,7 +10,7 @@
 6. Run `php artisan migrate` to create the tables
 7. Run `php artisan db:seed` to insert the sample data - 126 users and ratings for theme
 7. Run `php artisan serve` to start the dev server
-8. Click `Login` from top menu and login using - Усернаме: `the.first` Password: `secret`
+8. Click `Login` from top menu and login using - Username: `the.first` Password: `secret`
 9. Run `./vendor/bin/phpunit` to run the test which will check all ratings based on partners count
 
 
