@@ -50,6 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'username' => 'required|string|max:20|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -67,15 +68,15 @@ class RegisterController extends Controller
         $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
         
         if(!empty($data['referer']))
         {
-          $referer = User::where('email', base64_decode($data['referer']))->first();
+          $referer = User::where('username', base64_decode($data['referer']))->first();
           if (!empty($referer)) 
           {
-            file_put_contents('php://stderr', 'Email......................' . $referer->email);
             
             // ratings to be updated
             $rating1 = $referer->rating;
@@ -98,9 +99,9 @@ class RegisterController extends Controller
         }
         
         $user->rating()->create([
-          'username' => $user->email,
+          'username' => $user->username,
           'score' => 0,
-          'partner1' => !empty($referer)? $referer->email : '',
+          'partner1' => !empty($referer)? $referer->username : '',
           'partner2' => !empty($referer)? $referer->rating['partner1'] : '',
           'partner3' => !empty($referer)? $referer->rating['partner2'] : ''
         ]);       

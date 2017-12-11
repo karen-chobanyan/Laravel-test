@@ -18,7 +18,7 @@ class RatingsTableSeeder extends Seeder
         foreach ($users as $user) {
           DB::table('ratings')->insert([
               'user_id' => $user->id,
-              'username' => $user->email,
+              'username' => $user->username,
               'created_at' => Carbon::now()->format('Y-m-d H:i:s')
           ]);
         }

@@ -14,5 +14,5 @@
 9. Run `./vendor/bin/phpunit` to run the test which will check all ratings based on partners count
 
 
-To signup as a partner of the one of registered user, please,  navigate to /register?referer= followed by base64 encode ueser email.
-For example to register as a partner of thefirst@gmail.com navigate to /register?referer=dGhlZmlyc3RAZ21haWwuY29t and sign up
+To signup as a partner of the one of registered user, please,  navigate to /register?referer= followed by base64 encode uesername.
+For example to register as a partner of the use with username the.first navigate to /register?referer=dGhlLmZpcnN0 and sign up
