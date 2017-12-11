@@ -1,6 +1,6 @@
 # Laravel Test Project
 
-##Installation
+## Installation
 
 1. Clone the repository
 2. Run `composer install` to install dependencies
